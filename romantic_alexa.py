@@ -1,5 +1,9 @@
 # Importing necessary libraries/modules
+import speech_recognition as sr
+
 # Initializing speech recognition and text-to-speech engines
+listener = sr.Recognizer()
+
 # Function to make Alexa speak
 # Function to capture user's voice command
 # Using a microphone as the audio source
