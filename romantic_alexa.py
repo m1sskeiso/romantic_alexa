@@ -1,6 +1,7 @@
 # Importing necessary libraries/modules
 import speech_recognition as sr
 import pyttsx3
+import pywhatkit
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
@@ -39,6 +40,9 @@ def run_alexa():
     # Performing actions based on recognized command
     if 'play' in command:
         song = command.replace('play', '')
+        talk('playing ' + song)
+        pywhatkit.playonyt(song)
 # Getting information about a person from Wikipedia
 # Getting a joke using the pyjokes library
 # Main loop to keep Alexa running and listening for commands
+run_alexa()
