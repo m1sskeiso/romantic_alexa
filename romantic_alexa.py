@@ -3,12 +3,17 @@ import speech_recognition as sr
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
-
-# Function to make Alexa speak
+    try:
+        # Function to make Alexa speak
+        with sr.Microphone() as source:
+            print('listening...')
+            voice = listener.listen(source)
 # Function to capture user's voice command
 # Using a microphone as the audio source
 # Converting voice to text using Google's speech recognition
-# Removing the wake word "alexa" from the command
+    # Removing the wake word "alexa" from the command
+    except:
+        pass
 # Function to execute different commands based on user input
 # Getting user's command
 # Performing actions based on recognized command
