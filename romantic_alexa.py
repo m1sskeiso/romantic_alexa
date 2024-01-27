@@ -3,6 +3,7 @@ import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
+import wikipedia
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
@@ -46,7 +47,13 @@ def run_alexa():
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is ' + time)
+        print(time)
+    elif 'who the heck is' in command:
+        person = command.replace('who the heck is', '')
 # Getting information about a person from Wikipedia
+        info = wikipedia.summary(person, 1)
+        print(info)
+        talk(info)
 # Getting a joke using the pyjokes library
 # Main loop to keep Alexa running and listening for commands
 run_alexa()
