@@ -6,6 +6,7 @@ import datetime
 import wikipedia
 import pyjokes
 import webbrowser
+import json
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
@@ -71,6 +72,12 @@ def run_alexa():
         search_query = command.replace('search', '')
         talk('Searching for ' + search_query)
         webbrowser.open_new_tab('https://www.google.com/search?q=' + search_query)
+    elif 'reminder' in command:
+        talk('What should I remind you about?')
+        reminder_text = take_command()
+        talk('When should I remind you about ' + reminder_text + '?')
+        reminder_time = take_command()
+        talk(f"Sure! I'll remind you about {reminder_text} at {reminder_time}.")
     else:
         talk('Please say the command again.')
 
