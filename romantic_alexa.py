@@ -35,6 +35,10 @@ def take_command():
         pass
     return command
 
+# Function to make Alexa greet the user
+def greet_user():
+    talk('Hello! How can I assist you today?')
+
 # Function to execute different commands based on user input
 def run_alexa():
     # Getting user's command
@@ -64,7 +68,10 @@ def run_alexa():
         talk(pyjokes.get_joke())
     else:
         talk('Please say the command again.')
-        
+
 # Main loop to keep Alexa running and listening for commands
 while True:
+    # Greet the user at the beginning of each iteration
+    greet_user() 
+# Main loop to keep Alexa running and listening for commands
     run_alexa()
