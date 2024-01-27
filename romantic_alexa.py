@@ -2,6 +2,7 @@
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
+import datetime
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
@@ -42,6 +43,9 @@ def run_alexa():
         song = command.replace('play', '')
         talk('playing ' + song)
         pywhatkit.playonyt(song)
+    elif 'time' in command:
+        time = datetime.datetime.now().strftime('%I:%M %p')
+        talk('Current time is ' + time)
 # Getting information about a person from Wikipedia
 # Getting a joke using the pyjokes library
 # Main loop to keep Alexa running and listening for commands
