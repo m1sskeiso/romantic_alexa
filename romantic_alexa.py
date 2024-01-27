@@ -6,9 +6,13 @@ import pyttsx3
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
 
 # Function to make Alexa speak
-
+def talk(text):
+    engine.say(text)
+    engine.runAndWait()
+    
 # Function to capture user's voice command
 def take_command():
     try:
