@@ -5,6 +5,7 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import webbrowser
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
@@ -66,6 +67,10 @@ def run_alexa():
     elif 'joke' in command:
     # Getting a joke using the pyjokes library
         talk(pyjokes.get_joke())
+    elif 'search' in command:
+        search_query = command.replace('search', '')
+        talk('Searching for ' + search_query)
+        webbrowser.open_new_tab('https://www.google.com/search?q=' + search_query)
     else:
         talk('Please say the command again.')
 
