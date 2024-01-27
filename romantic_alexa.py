@@ -7,12 +7,15 @@ listener = sr.Recognizer()
 # Function to make Alexa speak
 
 # Function to capture user's voice command
+def take_command():
     try:
     # Using a microphone as the audio source
-    with sr.Microphone() as source:
-        print('listening...')
-        voice = listener.listen(source)
-# Converting voice to text using Google's speech recognition
+        with sr.Microphone() as source:
+            print('listening...')
+            voice = listener.listen(source)
+        # Converting voice to text using Google's speech recognition
+            command = listener.recognize_google(voice)
+            command = command.lower()
     # Removing the wake word "alexa" from the command
     except:
         pass
