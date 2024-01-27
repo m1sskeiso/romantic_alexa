@@ -17,6 +17,9 @@ def take_command():
             command = listener.recognize_google(voice)
             command = command.lower()
     # Removing the wake word "alexa" from the command
+            if 'alexa' in command:
+                command = command.replace('alexa', '')
+                print(command)
     except:
         pass
 # Function to execute different commands based on user input
