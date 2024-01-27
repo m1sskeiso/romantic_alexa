@@ -1,8 +1,11 @@
 # Importing necessary libraries/modules
 import speech_recognition as sr
+import pyttsx3
 
 # Initializing speech recognition and text-to-speech engines
 listener = sr.Recognizer()
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
 
 # Function to make Alexa speak
 
